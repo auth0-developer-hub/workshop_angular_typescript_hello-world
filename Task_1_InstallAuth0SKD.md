@@ -36,4 +36,4 @@ After you have successfully cloned the repo and installed all dependencies with 
 
 - Make a copy of `.env.example` and remove `.example`
 - Check if your Angular Application still compiles: `npm start`
-- Add the Auth0 SDK to you Angular Application: `ng add @auth/auth0-angular`
+- Add the Auth0 SDK to you Angular Application: `ng add @auth0/auth0-angular`

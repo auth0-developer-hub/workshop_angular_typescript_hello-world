@@ -50,3 +50,38 @@ Head back to the `src` project directory that stores the Angular application.
 Locate the `auth_config.json` file and replace the `audience` property with the same one you just added to the `.env` file for the Express server.
 
 In the next steps of the workshop, you'll use those values in the `environment.ts` file and work on calling public and private endpoints.
+
+### Update the environment.ts inside your Angular Application
+
+- Inside the `src/environments/environment.ts` File we need to add the new `audience` Property - from the `auth.config.json` Configuration - inside the `auth` Property.
+- Inside the `environment` Const we also add a `dev` - Property within we add the `apiUrl` from the `auth.config.json` Configuration also as a Property.
+
+### Update ExternalApiComponent
+
+- Update the Template and Component as followed:
+
+
+```javascript
+export class ExternalApiComponent implements OnInit {
+  message: string = '';
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {}
+
+  callApi(): void {
+    this.http
+      .get(`${env.dev.apiUrl}/api/messages/public-message`).pipe(take(1))
+      .subscribe((result: Message) => {
+        this.message = result.message;
+      });
+  }
+```
+
+```html
+<button (click)="callApi()" type="button" class="btn btn-primary">
+      Get Public Message
+</button>
+```
+
+**As soon as you applied everything you should see a message returned from your running express backend**

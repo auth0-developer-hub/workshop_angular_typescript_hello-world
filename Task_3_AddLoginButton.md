@@ -17,7 +17,8 @@
 - The `LoginButton` should be displayed whenever an user isn't authenticated yet, to get this information we need to inject the `AuthService` into the `NavBarComponent` as well.
 - The `AuthService` has a property `isAuthenticated$` which holds an Observable with the information if the user is already authenticated.
 - Use the structual directive `ngIf` and subscribe to this Observable using the `AsyncPipe` inside the `<app-login-button>`
-- As soon as you applied everything the `LoginButton` should be hidden after you have successfuly authenticated yourself with Auth0.
+
+**As soon as you applied everything the `LoginButton` should be hidden after you have successfuly authenticated yourself with Auth0.**
 
 ### Hints
 
