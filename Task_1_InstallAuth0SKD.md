@@ -28,9 +28,12 @@ Using the Auth0 Angular SDK, your Angular application will make requests under t
 
 Scroll down and click the "Save Changes" button.
 
-Don't close this page yet as you'll need some of its information in the next section.
+**Don't close this page yet as you'll need some of its information in the next section.**
 
-### Add the Auth0 configuration variables to Angular
-From the Auth0 Application Settings page, you need the Auth0 Domain and Client ID values to allow your Angular application to use the communication bridge you just created.
+### Install the Auth0 SDK 
 
-The client uses the `auth_config.json` file. Duplicate `auth_config.json.example` and remove the `.example`. Replace the `domain` and `clientId` values for now. You'll replace the `audience` value in step 7 when we set up the API.
+After you have successfully cloned the repo and installed all dependencies with `npm install`
+
+- Make a copy of `.env.example` and remove `.example`
+- Check if your Angular Application still compiles: `npm start`
+- Add the Auth0 SDK to you Angular Application: `ng add @auth/auth0-angular`

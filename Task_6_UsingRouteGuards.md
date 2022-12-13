@@ -1,1 +1,1 @@
-# Display Profile Information
+# Protect the profile page with a guard.

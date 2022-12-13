@@ -1,1 +1,1 @@
-# Add a log out button
+# Display Profile Information
