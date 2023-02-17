@@ -2,28 +2,29 @@
 
 ### Create the Component
 
-- Create a `LoginButtonComponent` under the `src/components/` directory using the Angular CLI: `ng g component components/login-button`
+- Create a `LoginButtonComponent` under the `src/shared/components/buttons/` directory using the Angular CLI: `ng g component shared/components/button/login-button`
 - Inject the `AuthService` from the `@auth/auth0-angular` SDK.
-- Create a `loginWithRedirect` Function inside the `LoginButtonComponent` and call the `loginWithRedirect` Function on the `AuthService`
+- Create a `handleLogin` Function inside the `LoginButtonComponent` and call the `loginWithRedirect` Function on the `AuthService`
 
 ### Populate the template file
 
-- add a Button-HTML Tag (you can add the CSS-Class `btn btn-primary btn-block` to get some styling as well)
-- Add a `click` Event handler for the Button an call your `loginWithRedirect()` Function inside of it.
+- add a Button-HTML Tag (you can add the CSS-Class `button__login` to get some styling as well)
+- Add a `click` Event handler for the Button an call your `handleLogin()` Function inside of it.
 
-### Update the NavBarComponent
+### Update the NavBarButtonsComponent
 
-- Inside the Template Add the `app-login-button`-Tag beneath the `app-main-nav` (to get some styling you can also wrap the `app-login-button` Tag inside a `div` and apply CSS class `navbar-nav ml-auto`)
-- The `LoginButton` should be displayed whenever an user isn't authenticated yet, to get this information we need to inject the `AuthService` into the `NavBarComponent` as well.
+- Open the `NavBarButtonsComponent`: `src/app/shared/components/navigation/desktop/nav-bar-buttons.component.ts`
+- Inside the Template Add the `app-login-button`-Tag between the `div`-Tag
+- The `LoginButton` should be displayed whenever an user isn't authenticated yet, to get this information we need to inject the `AuthService` into the `NavBarButtonComponent` as well.
 - The `AuthService` has a property `isAuthenticated$` which holds an Observable with the information if the user is already authenticated.
-- Use the structual directive `ngIf` and subscribe to this Observable using the `AsyncPipe` inside the `<app-login-button>`
+- Use the structural directive `ngIf` and subscribe to this Observable using the `AsyncPipe` inside the `<app-login-button>`
 
 **As soon as you applied everything the `LoginButton` should be hidden after you have successfuly authenticated yourself with Auth0.**
 
 ### Hints
 
 ```javascript
-// src/app/components/login-button/login-button.component.ts
+// src/app/shared/components/buttons/login-button/login-button.component.ts
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
@@ -32,7 +33,7 @@ import { AuthService } from '@auth0/auth0-angular';
 export class LoginButtonComponent implements OnInit {
   constructor(private readonly auth: AuthService) {}
 
-  loginWithRedirect(): void {
+handleLogin(): void {
     this.auth.loginWithRedirect();
   }
 }
@@ -40,15 +41,14 @@ export class LoginButtonComponent implements OnInit {
 
 ```html
 <!-- src/app/components/login-button/login-button.component.html -->
-<button class="btn btn-primary btn-block" (click)="loginWithRedirect()">
+<button class="button__login" (click)="handleLogin()">
   Log in
 </button>
 
-// src/app/components/nav-bar/nav-bar.component.html
-<app-main-nav></app-main-nav>
-<div class="navbar-nav ml-auto">
+<!-- src/app/shared/components/navigation/desktop/nav-bar-buttons.component.html
+<div class="nav-bar__buttons">
     <app-login-button
-            *ngIf="(auth.isAuthenticated$ | async) === false">
+            *ngIf="(isAuthenticated$ | async) === false">
     </app-login-button>
 </div>
 ```

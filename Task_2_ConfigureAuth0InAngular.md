@@ -3,13 +3,7 @@
 ### Add the Auth0 configuration variables to Angular
 From the Auth0 Application Settings page, you need the Auth0 Domain and Client ID values to allow your Angular application to use the communication bridge you just created.
 
-The client uses the `auth_config.json` file. Duplicate `auth_config.json.example` and remove the `.example`. Replace the `domain` and `clientId` values for now. You'll replace the `audience` value in step 7 when we set up the API.
-
-### Change environment.ts
-
-- Import the `auth_config.json` inside `src/environments/environment.ts` 
-- Add an `auth`-property inside the `environment` const and insert the `domain` and `clientId` properties from the imported `auth_config.json`
-- Add another property called `redirectUri` inside the `auth`-property and asign the value `window.location.origin` to it.
+// ToDo manage .env file
 
 ### Import AuthModule into you AppModule
 
@@ -46,7 +40,7 @@ import { environment as env } from '../environments/environment';
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        FontAwesomeModule,
+        SharedModule,
         // 👇 add and initialize AuthModule
         AuthModule.forRoot({
             ...env.auth,

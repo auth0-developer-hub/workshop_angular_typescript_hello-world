@@ -22,39 +22,24 @@ The Auth0-SDK already provides us some kind of `AuthHttpInterceptor` doing this 
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {
-        allowedList: [`${env.dev.apiUrl}/api/messages/protected-message`],
+        allowedList: [`${env.dev.apiUrl}/api/messages/protected`],
       },
     }),
   ],
 
 ```
 
-### Update ExternalApiComponent
+### Update ProtectedComponent
 
 Having the interceptor applied we now want to test it with an protected API
-Let's add another `callSecureApi` Function inside the `ExternalApiComponent`:
+Let's add another `callSecureApi` Function inside the `ProtectedComponent`:
 
 ```javascript
-export class ExternalApiComponent implements OnInit {
-  message: string = null;
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit(): void {}
-
- callSecureApi(): void {
-    this.http
-      .get(`${env.dev.apiUrl}/api/messages/protected-message`)
-      .subscribe((result: Message) => {
-        this.message = result.message;
-      });
-  }
 ```
 
 ```html
-<button (click)="callSecureApi()" type="button" class="btn btn-primary">
-      Get Private Message
-</button>
+
 ```
 
 **After you have applied everything you should see a protected message returned from your running express backend**

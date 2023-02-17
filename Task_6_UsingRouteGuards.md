@@ -1,11 +1,11 @@
-# Protect the profile and external API routes with a guard.
+# Protect the profile and protected routes with a guard.
 
 Some pages inside our Angular application should be protected unless the user is authenticated.
 For that the `Auth0-SDK` provides a build in Routing-Guard to add ass an `CanActivate` Guard.
 
 - Update the `AppRoutingModule` by adding the `AuthGuard` to following routes:
   - 'profile'
-  - 'external-api'
+  - 'protected'
 
 **After you added the `AuthGuard` you should not be able to visit the `profile` Route without signing in.**
 
@@ -14,16 +14,16 @@ For that the `Auth0-SDK` provides a build in Routing-Guard to add ass an `CanAct
 
 import { AuthGuard } from '@auth0/auth0-angular';
 
-const APP_ROUTES: Routes = [
+const routes: Routes = [
     ...
   {
     path: 'profile',
-    component: ProfileComponent,
+    loadComponent: () => import('./features/profile/profile.component'),
     canActivate: [AuthGuard],
-  },
+   },
   {
-    path: 'external-api',
-    component: ExternalApiComponent,
+    path: 'protected',
+    loadComponent: () => import('./features/protected/protected.component'),
     canActivate: [AuthGuard],
   },
 ];

@@ -4,21 +4,22 @@ After we have successfully added a login button that hides after we authenticate
 
 ### Create the Component
 
-- Create a `LogoutButtonComponent` under the `src/components/` directory using the Angular CLI: `ng g component components/logout-button`
+- Create a `LogoutButtonComponent` under the `src/shared/components/buttons/` directory using the Angular CLI: `ng g component shared/components/button/logout-button`
 - Inject the `AuthService` from the `@auth/auth0-angular` SDK.
-- Create a `logout` Function inside the `LogoutButtonComponent` and call the `logout` Function on the `AuthService`
-- Inside the `logout` Function You pass it an optional configuration object to tell Auth0 where to take users after it logs them out: `{ returnTo: this.doc.location.origin }`
+- Create a `handleLogout` Function inside the `LogoutButtonComponent` and call the `logout` Function on the `AuthService`
+- Inside the `handleLogout` Function You pass it an optional configuration object to tell Auth0 where to take users after it logs them out: `{ returnTo: this.doc.location.origin }`
 - For this you need to Inject the `Document` token from `@angular/common` as well.
 
 ### Populate the template file
 
-- Add a Button-HTML Tag (you can add the CSS-Class `btn btn-primary btn-block` to get some styling as well)
-- Add a `click` Event handler for the Button an call your `logout()` Function inside of it.
+- Add a Button-HTML Tag (you can add the CSS-Class `button__logout` to get some styling as well)
+- Add a `click` Event handler for the Button an call your `handleLogout()` Function inside of it.
 
 ### Update tbe nav-bar
-Again we need to update the `NavBarComponent` as well:
+Again we need to update the `NavBarButtonsComponent` as well:
 
-- Add the `app-logout-button` Tag right beneath the `app-login-button`
+- Open the `NavBarButtonsComponent`: `src/app/shared/components/navigation/desktop/nav-bar-buttons.component.ts`
+- Add the `app-logout-button` Tag right above the `app-login-button`
 - You can either use the `NgIfElse`-Syntax here or add again another structural directive inside the `app-logout-button` to have this Button displayed as soon as the `isAuthenticated$`-Property returns true.
 
 **As soon as you applied everything the `LogoutButton` should be shown up after you have successfuly authenticated yourself with Auth0.**
@@ -36,7 +37,7 @@ export class LogoutButtonComponent implements OnInit {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  logout(): void {
+handleLogout(): void {
     this.auth.logout({ returnTo: this.doc.location.origin });
   }
 }
@@ -46,14 +47,12 @@ export class LogoutButtonComponent implements OnInit {
 ```html
 // src/app/components/logout-button/nav-bar.component.html
 
-<div class="navbar-nav ml-auto">
-  <app-login-button 
-*ngIf="(auth.isAuthenticated$ | async) === false">
-  </app-login-button>
-  
-  <app-logout-button 
-*ngIf="auth.isAuthenticated$ | async">
-  </app-logout-button>
-
+<div class="nav-bar__buttons">
+    <ng-container *ngIf="isAuthenticated$ | async; else loggedOut">
+        <app-logout-button></app-logout-button>
+    </ng-container>
+    <ng-template #loggedOut>
+        <app-login-button></app-login-button>
+    </ng-template>
 </div>
 ```
