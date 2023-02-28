@@ -13,16 +13,16 @@ This workshop will follow 8 steps:
 
 Each step has a corresponding branch with the finished code for that step. If you get behind, you can always skip ahead by checking out the next branch.
 
-Feel free to [follow along with the slides]() as well.
+Feel free to [follow along with the slides](https://drive.google.com/drive/folders/1y8EF3r3GGrj3eugR0xQLC53BcySbM5XD?usp=sharing) as well.
 
 ## About this App
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0. It also includes a tiny Express server for testing a public and a protected endpoint.
 
-You'll find the demo project on GitHub:
+You'll find the demo project on [GitHub](https://github.com/auth0-developer-hub/spa_angular_typescript_hello-world___workshop):
+
+Clone the Repo as following:
 
 `git clone -b starter https://github.com/auth0-developer-hub/spa_angular_typescript_hello-world___workshop.git `
-
-To get started with the workshop, follow the instructions on the [projects page](https://github.com/auth0-developer-hub/spa_angular_typescript_hello-world___workshop/tree/starter):
 
 ## Sign up for Auth0
 If you haven't already, [sign up for a free Auth0 account](https://auth0.com/signup), which offers you:

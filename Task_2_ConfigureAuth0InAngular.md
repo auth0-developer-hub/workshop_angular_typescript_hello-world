@@ -40,6 +40,6 @@ import { environment as env } from '../environments/environment';
         SharedModule,
         // 👇 add and initialize AuthModule
         AuthModule.forRoot({
-            ...env.auth,
+            ...env.auth0,
         }),
 ```
