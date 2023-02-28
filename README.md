@@ -1,7 +1,7 @@
 # Identity 101 workshop
 
 ## Workshop Overview
-This workshop will follow 8 steps:
+This workshop will follow 7 steps:
 
 **Task 1:** Install the Auth0 SDK and create the application in Auth0.  
 **Task 2:** Configure the SDK in the app.    
