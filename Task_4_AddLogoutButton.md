@@ -38,10 +38,15 @@ export class LogoutButtonComponent implements OnInit {
   ) {}
 
 handleLogout(): void {
-    this.auth.logout({ returnTo: this.doc.location.origin });
+    this.auth.logout({ logoutParams: { returnTo: this.doc.location.origin } });
   }
 }
 
+```
+
+```html
+// src/shared/components/buttons/logout-button/logout-button.component.html
+<button class="button__logout" (click)="handleLogout()">Log Out</button>
 ```
 
 ```html

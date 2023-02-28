@@ -1,4 +1,4 @@
-# Install the Auth0 SDK and create the application in Auth0.  
+# Install the Auth0 SDK and create the application in Auth0.
 
 ##  Create the Client Application in Auth0
 Once you sign in, Auth0 takes you to the [Dashboard](https://manage.auth0.com/), where you can manage and configure your identity services. In the left sidebar menu, click on ["Applications"](https://manage.auth0.com/#/applications).
@@ -14,15 +14,15 @@ We need now need to help Angular and Auth0 communicate using configuration data 
 
 Click on the "Settings" tab of your Auth0 Application page and fill in the following values:
 
-**Allowed Callback URL:** http://localhost:4200
+**Allowed Callback URL:** [http://localhost:4040/callback](http://localhost:4040/callback)
 
 After your users successfully log in, Auth0 can only redirect them to any of the URLs you list here.
 
-**Allowed Logout URL:** http://localhost:4200
+**Allowed Logout URL:** [http://localhost:4040](http://localhost:4040)
 
 After your users log out, Auth0 can only redirect them to any of the URLs you list here.
 
-**Allowed Web Origins:** http://localhost:4200
+**Allowed Web Origins:** [http://localhost:4040](http://localhost:4040)
 
 Using the Auth0 Angular SDK, your Angular application will make requests under the hood to an Auth0 URL to handle authentication requests. As such, you need to add your Angular application origin URL to avoid Cross-Origin Resource Sharing (CORS) issues.
 
@@ -30,8 +30,27 @@ Scroll down and click the "Save Changes" button.
 
 **Don't close this page yet as you'll need some of its information in the next section.**
 
-### Install the Auth0 SDK 
+### Install the Auth0 SDK
 
-After you have successfully cloned the repo and installed all dependencies with `npm install`
+After you have successfully cloned the repo and installed 
+all dependencies with `npm install`
+To install the Auth0 SDK you can do this through npm:
+`npm i @auth0/auth0-angular`
 
-// ToDo setenv.ts
+### Setting up the Backend API
+
+This Angular code sample is compatible with any "Auth0 Hello World" API code samples,
+which run on http://localhost:6060 by default. 
+However, this project  mocks the external API server using json-server.
+
+Execute the following command to run the JSON server API:
+`npm run api`
+
+The API mocks two API endpoints:
+- /api/messages/public
+- /api/messages/protected
+
+We will get to each one of those during the workshop
+
+Finally, open another terminal tab and execute this command to run your Angular application:
+`npm start`

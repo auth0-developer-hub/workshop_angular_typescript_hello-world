@@ -31,11 +31,11 @@ import { AuthService } from '@auth0/auth0-angular';
 
 @Component({...})
 export class LoginButtonComponent implements OnInit {
-  constructor(private readonly auth: AuthService) {}
+    constructor(private readonly auth: AuthService) {}
 
 handleLogin(): void {
     this.auth.loginWithRedirect();
-  }
+}
 }
 ```
 
@@ -51,4 +51,4 @@ handleLogin(): void {
             *ngIf="(isAuthenticated$ | async) === false">
     </app-login-button>
 </div>
-```n
+```

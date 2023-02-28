@@ -8,9 +8,8 @@ This workshop will follow 8 steps:
 **Task 3:** Add a log in button.  
 **Task 4:** Add a log out button.  
 **Task 5:** Display profile information.  
-**Task 6:** Protect the profile page with a guard.  
-**Task 7:** Set up an API in Auth0 and configure the server and Angular app.  
-**Task 8:** Call a protected endpoint using an `HttpInterceptor`.
+**Task 6:** Protect the profile page with a guard.
+**Task 7:** Call a protected endpoint using an `HttpInterceptor`.
 
 Each step has a corresponding branch with the finished code for that step. If you get behind, you can always skip ahead by checking out the next branch.
 
