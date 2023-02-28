@@ -40,7 +40,7 @@ handleLogin(): void {
 ```
 
 ```html
-<!-- src/app/components/login-button/login-button.component.html -->
+<!-- src/app/shared/components/buttons/login-button/login-button.component.html -->
 <button class="button__login" (click)="handleLogin()">
   Log in
 </button>
@@ -51,4 +51,4 @@ handleLogin(): void {
             *ngIf="(isAuthenticated$ | async) === false">
     </app-login-button>
 </div>
-```
+```n

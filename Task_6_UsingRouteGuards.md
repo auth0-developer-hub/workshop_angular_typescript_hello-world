@@ -14,7 +14,7 @@ For that the `Auth0-SDK` provides a build in Routing-Guard to add ass an `CanAct
 
 import { AuthGuard } from '@auth0/auth0-angular';
 
-const routes: Routes = [
+export const APP_ROUTES: Routes = [
     ...
   {
     path: 'profile',

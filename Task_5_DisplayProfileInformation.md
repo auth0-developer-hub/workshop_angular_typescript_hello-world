@@ -13,7 +13,7 @@ After we have successfully logged in we also want to update the `ProfileComponen
 
 
 ```javascript
-// src/app/pages/profile/profile.component.ts
+// src/app/features/profile/profile.component.ts
 
 @Component({...})
 export class ProfileComponent {

@@ -27,7 +27,7 @@ Again we need to update the `NavBarButtonsComponent` as well:
 ### Hints
 
 ```JavaScript
-// src/app/components/logout-button/logout-button.component.ts
+// src/shared/components/buttons/logout-button/logout-button.component.ts
 @Component({
 ...
 })
@@ -45,7 +45,7 @@ handleLogout(): void {
 ```
 
 ```html
-// src/app/components/logout-button/nav-bar.component.html
+// src/app/shared/components/navigation/desktop/nav-bar.component.html
 
 <div class="nav-bar__buttons">
     <ng-container *ngIf="isAuthenticated$ | async; else loggedOut">
