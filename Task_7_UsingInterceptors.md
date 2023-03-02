@@ -22,7 +22,7 @@ The Auth0-SDK already provides us some kind of `AuthHttpInterceptor` doing this 
     AuthModule.forRoot({
         ...env.auth,
         httpInterceptor: {
-            allowedList: [`${env.dev.apiUrl}/api/messages/protected`],
+            allowedList: [`${env.api.serverUrl}/api/messages/protected`],
         },
     }),
     ],
