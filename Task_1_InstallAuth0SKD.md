@@ -14,7 +14,7 @@ We need now need to help Angular and Auth0 communicate using configuration data 
 
 Click on the "Settings" tab of your Auth0 Application page and fill in the following values:
 
-**Allowed Callback URL:** [http://localhost:4040/callback](http://localhost:4040/callback)
+**Allowed Callback URL:** [http://localhost:4040/callback](http://localhost:4040/callback), [http://localhost:4040](http://localhost:4040)
 
 After your users successfully log in, Auth0 can only redirect them to any of the URLs you list here.
 
